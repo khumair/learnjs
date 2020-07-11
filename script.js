@@ -56,3 +56,15 @@ $.get('https://jsonplaceholder.typicode.com/users')
 
         })
     })
+
+
+// // 
+// function fetchData(url, callBack) {
+//     $.get(url)
+//         .done(funciton(data){
+//             $.map(data, funciton(rec){
+//                 callBack(rec);
+//             });
+//         })
+// }
+
