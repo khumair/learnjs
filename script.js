@@ -9,8 +9,6 @@ var funVar = function () {
 }
 
 funVar();
-
-
 // Call Back function
 function message(age, callback) {
     if (age >= 19 && age <= 50) {
@@ -31,6 +29,7 @@ message(18, function (check) {
 
 
 // Call back funtion countinue 
+/*
 $.get('https://jsonplaceholder.typicode.com/users')
     .done(function (data) {
         $.map(data, function (rec) {
@@ -57,14 +56,28 @@ $.get('https://jsonplaceholder.typicode.com/users')
         })
     })
 
+*/
+//  
+function fetchData(url, callBack) {
+    $.get(url)
+        .done(function (data) {
+            $.map(data, function (rec) {
+                callBack(rec);
+            });
+        })
+}
+fetchData('https://jsonplaceholder.typicode.com/users', function (user) {
+    fetchData('https://jsonplaceholder.typicode.com/posts?userId=' + user.id, function (post) {
+        console.log(post)
+    })
+    fetchData('https://jsonplaceholder.typicode.com/posts?userId=' + user.id, function (albums) {
 
-// // 
-// function fetchData(url, callBack) {
-//     $.get(url)
-//         .done(funciton(data){
-//             $.map(data, funciton(rec){
-//                 callBack(rec);
-//             });
-//         })
-// }
+        fetchData('https://jsonplaceholder.typicode.com/posts?userId=' + albums.id, function (photos) {
+            console.log(photos)
+        })
+
+
+    })
+
+})
 
