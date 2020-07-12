@@ -57,7 +57,9 @@ $.get('https://jsonplaceholder.typicode.com/users')
     })
 
 */
-//  
+// 
+
+/*
 function fetchData(url, callBack) {
     $.get(url)
         .done(function (data) {
@@ -81,3 +83,4 @@ fetchData('https://jsonplaceholder.typicode.com/users', function (user) {
 
 })
 
+*/
